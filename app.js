@@ -1,7 +1,7 @@
 // console.log('I am in a separate file')
 
-function updateCaseNumber(isIncreasing){
-    const caseInputText=document.getElementById('case-number');
+function updateCaseNumber(product,price,isIncreasing){
+    const caseInputText=document.getElementById(product +'-number');
 
     let  caseNumber=caseInputText.value;
     if(isIncreasing==true){
@@ -12,19 +12,31 @@ function updateCaseNumber(isIncreasing){
     }
 caseInputText.value=caseNumber;
 //update case price
-const caseTotal=document.getElementById('case-price');
-caseTotal.innerText=caseNumber*59;
+const caseTotal=document.getElementById(product +'-price');
+caseTotal.innerText=caseNumber*price;
 
     // console.log(caseNumber);
 }
 
 document.getElementById('case-plus').addEventListener('click',function(){
 
-updateCaseNumber(true);
+updateCaseNumber('case',59,true);
 
 });
 document.getElementById('case-minus').addEventListener('click',function(){
 
- updateCaseNumber(false)
+ updateCaseNumber( 'case',59,false)
 ;
+})
+
+
+
+//phone incresde decrease
+document.getElementById('phone-plus').addEventListener('click',function(){
+
+    // console.log("clicjked");
+    updateCaseNumber('phone',1219,true);
+})
+document.getElementById('phone-minus').addEventListener('click',function(){
+updateCaseNumber('phone',1219,false);
 })
